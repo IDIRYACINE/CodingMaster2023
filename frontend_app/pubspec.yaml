@@ -21,6 +21,7 @@ dependencies:
   excel: ^2.0.4
   graphql: ^5.1.2
   graphql_codegen: ^0.12.0-beta.15
+  file_picker: ^5.2.6
 
 dev_dependencies:
   flutter_test:

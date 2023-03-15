@@ -13,6 +13,8 @@ class AdminBloc extends Bloc<AdminEvents,AdminState>{
 
 
   FutureOr<void> _registerUserFromExcel(RegisterUsersFromExcel event, Emitter<AdminState> emit) {
+    
+  
   }
 
   FutureOr<void> _loadUsers(LoadUsers event, Emitter<AdminState> emit) {
