@@ -3,6 +3,7 @@
 import 'package:frontend_app/infrastracture/services.dart';
 
 import '../api.dart';
+import 'package:graphql/client.dart';
 
 class GetUserData extends Command<GetUserDataEventData, GetUserDataRawEventData,
     GetUserDataResponse> {
@@ -10,7 +11,9 @@ class GetUserData extends Command<GetUserDataEventData, GetUserDataRawEventData,
   static final eventName = UserApi.getUserData.name;
   static final serviceId = Services.UsersService.index;
 
-  GetUserData() : super(eventId, eventName);
+  final GraphQLClient graphQl;
+
+  GetUserData(this.graphQl) : super(eventId, eventName);
 
   @override
   Future<GetUserDataResponse> handleEvent(GetUserDataEventData eventData) {

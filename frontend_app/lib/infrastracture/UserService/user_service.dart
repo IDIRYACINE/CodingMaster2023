@@ -5,6 +5,7 @@ import '../../application/GraphQlHelpers/graphql_utility.dart';
 import '../../application/ServiceStore/service_store.dart';
 import '../helpers.dart';
 import '../services.dart';
+import 'Commands/get_user_data.dart';
 import 'api.dart';
 
 final _stockServiceId = Services.UsersService.index;
@@ -50,6 +51,6 @@ class UserService extends Service {
     instance.initCommands(UserApi.values.length);
 
     final graphQl = getGraphQlClient();
-    // instance.replaceCommandAtIndex(LoadProductFamillies(graphQl));
+    instance.replaceCommandAtIndex(GetUserData(graphQl));
   }
 }

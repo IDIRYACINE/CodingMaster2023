@@ -348,7 +348,7 @@ packages:
     source: hosted
     version: "5.1.2"
   graphql_codegen:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: graphql_codegen
       sha256: "655d34f1a65373456a62ecfaaa61bf3f42d6cae30d8e20b8d9bab9c811b9a6d2"
