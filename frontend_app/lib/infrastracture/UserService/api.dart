@@ -1,0 +1,3 @@
+enum UserApi{
+  getUserData
+}
