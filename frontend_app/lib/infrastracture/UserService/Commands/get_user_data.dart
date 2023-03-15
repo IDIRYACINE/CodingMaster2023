@@ -1,5 +1,4 @@
-
-  import 'package:frontend_app/application/ServiceStore/service_store.dart';
+import 'package:frontend_app/application/ServiceStore/service_store.dart';
 import 'package:frontend_app/infrastracture/services.dart';
 
 import '../api.dart';
@@ -17,7 +16,7 @@ class GetUserData extends Command<GetUserDataEventData, GetUserDataRawEventData,
 
   @override
   Future<GetUserDataResponse> handleEvent(GetUserDataEventData eventData) {
-    throw UnimplementedError();
+    throw UnimplementedError;
   }
 
   @override
@@ -25,29 +24,29 @@ class GetUserData extends Command<GetUserDataEventData, GetUserDataRawEventData,
       GetUserDataRawEventData eventData) {
     throw UnimplementedError();
   }
-  }
+}
 
-  class GetUserDataResponse extends ServiceEventResponse {
+class GetUserDataResponse extends ServiceEventResponse {
   GetUserDataResponse(super.messageId, super.responseType);
-  }
+}
 
-  class GetUserDataRawEventData extends RawServiceEventData {
+class GetUserDataRawEventData extends RawServiceEventData {
   GetUserDataRawEventData({required int messageId, required String requesterId})
       : super(messageId, requesterId, GetUserData.eventId);
-  }
+}
 
-  class GetUserDataEventData extends ServiceEventData<GetUserDataRawEventData> {
+class GetUserDataEventData extends ServiceEventData<GetUserDataRawEventData> {
   GetUserDataEventData(super.requesterId);
 
   @override
   GetUserDataRawEventData toRawServiceEventData() {
-    return GetUserDataRawEventData(messageId: messageId, requesterId: requesterId);
+    return GetUserDataRawEventData(
+        messageId: messageId, requesterId: requesterId);
   }
-  }
-
+}
 
 class GetUserDataEvent extends ServiceEvent<GetUserDataResponse> {
   GetUserDataEvent({required super.eventData, super.callback})
-      : super(GetUserData.eventId, GetUserData.eventName, GetUserData.serviceId);
+      : super(
+            GetUserData.eventId, GetUserData.eventName, GetUserData.serviceId);
 }
-  

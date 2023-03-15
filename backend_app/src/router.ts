@@ -1,5 +1,5 @@
 import "reflect-metadata";
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from "../prisma/generated/client";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { buildSchema } from "type-graphql";

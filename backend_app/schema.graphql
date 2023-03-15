@@ -1,0 +1,910 @@
+type Query {
+  aggregateAuth(where: AuthWhereInput, orderBy: [AuthOrderByWithRelationInput!], cursor: AuthWhereUniqueInput, take: Int, skip: Int): AggregateAuth!
+  findFirstAuth(where: AuthWhereInput, orderBy: [AuthOrderByWithRelationInput!], cursor: AuthWhereUniqueInput, take: Int, skip: Int, distinct: [AuthScalarFieldEnum!]): Auth
+  findFirstAuthOrThrow(where: AuthWhereInput, orderBy: [AuthOrderByWithRelationInput!], cursor: AuthWhereUniqueInput, take: Int, skip: Int, distinct: [AuthScalarFieldEnum!]): Auth
+  auths(where: AuthWhereInput, orderBy: [AuthOrderByWithRelationInput!], cursor: AuthWhereUniqueInput, take: Int, skip: Int, distinct: [AuthScalarFieldEnum!]): [Auth!]!
+  auth(where: AuthWhereUniqueInput!): Auth
+  getAuth(where: AuthWhereUniqueInput!): Auth
+  groupByAuth(where: AuthWhereInput, orderBy: [AuthOrderByWithAggregationInput!], by: [AuthScalarFieldEnum!]!, having: AuthScalarWhereWithAggregatesInput, take: Int, skip: Int): [AuthGroupBy!]!
+  aggregateTempAccess(where: TempAccessWhereInput, orderBy: [TempAccessOrderByWithRelationInput!], cursor: TempAccessWhereUniqueInput, take: Int, skip: Int): AggregateTempAccess!
+  findFirstTempAccess(where: TempAccessWhereInput, orderBy: [TempAccessOrderByWithRelationInput!], cursor: TempAccessWhereUniqueInput, take: Int, skip: Int, distinct: [TempAccessScalarFieldEnum!]): TempAccess
+  findFirstTempAccessOrThrow(where: TempAccessWhereInput, orderBy: [TempAccessOrderByWithRelationInput!], cursor: TempAccessWhereUniqueInput, take: Int, skip: Int, distinct: [TempAccessScalarFieldEnum!]): TempAccess
+  tempAccesses(where: TempAccessWhereInput, orderBy: [TempAccessOrderByWithRelationInput!], cursor: TempAccessWhereUniqueInput, take: Int, skip: Int, distinct: [TempAccessScalarFieldEnum!]): [TempAccess!]!
+  tempAccess(where: TempAccessWhereUniqueInput!): TempAccess
+  getTempAccess(where: TempAccessWhereUniqueInput!): TempAccess
+  groupByTempAccess(where: TempAccessWhereInput, orderBy: [TempAccessOrderByWithAggregationInput!], by: [TempAccessScalarFieldEnum!]!, having: TempAccessScalarWhereWithAggregatesInput, take: Int, skip: Int): [TempAccessGroupBy!]!
+  aggregateUserTypes(where: UserTypesWhereInput, orderBy: [UserTypesOrderByWithRelationInput!], cursor: UserTypesWhereUniqueInput, take: Int, skip: Int): AggregateUserTypes!
+  findFirstUserTypes(where: UserTypesWhereInput, orderBy: [UserTypesOrderByWithRelationInput!], cursor: UserTypesWhereUniqueInput, take: Int, skip: Int, distinct: [UserTypesScalarFieldEnum!]): UserTypes
+  findFirstUserTypesOrThrow(where: UserTypesWhereInput, orderBy: [UserTypesOrderByWithRelationInput!], cursor: UserTypesWhereUniqueInput, take: Int, skip: Int, distinct: [UserTypesScalarFieldEnum!]): UserTypes
+  findManyUserTypes(where: UserTypesWhereInput, orderBy: [UserTypesOrderByWithRelationInput!], cursor: UserTypesWhereUniqueInput, take: Int, skip: Int, distinct: [UserTypesScalarFieldEnum!]): [UserTypes!]!
+  findUniqueUserTypes(where: UserTypesWhereUniqueInput!): UserTypes
+  findUniqueUserTypesOrThrow(where: UserTypesWhereUniqueInput!): UserTypes
+  groupByUserTypes(where: UserTypesWhereInput, orderBy: [UserTypesOrderByWithAggregationInput!], by: [UserTypesScalarFieldEnum!]!, having: UserTypesScalarWhereWithAggregatesInput, take: Int, skip: Int): [UserTypesGroupBy!]!
+  aggregateUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int): AggregateUsers!
+  findFirstUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): Users
+  findFirstUsersOrThrow(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): Users
+  findManyUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
+  findUniqueUsers(where: UsersWhereUniqueInput!): Users
+  findUniqueUsersOrThrow(where: UsersWhereUniqueInput!): Users
+  groupByUsers(where: UsersWhereInput, orderBy: [UsersOrderByWithAggregationInput!], by: [UsersScalarFieldEnum!]!, having: UsersScalarWhereWithAggregatesInput, take: Int, skip: Int): [UsersGroupBy!]!
+}
+
+type AggregateAuth {
+  _count: AuthCountAggregate
+  _avg: AuthAvgAggregate
+  _sum: AuthSumAggregate
+  _min: AuthMinAggregate
+  _max: AuthMaxAggregate
+}
+
+type AuthCountAggregate {
+  id: Int!
+  password: Int!
+  _all: Int!
+}
+
+type AuthAvgAggregate {
+  id: Float
+}
+
+type AuthSumAggregate {
+  id: Int
+}
+
+type AuthMinAggregate {
+  id: Int
+  password: String
+}
+
+type AuthMaxAggregate {
+  id: Int
+  password: String
+}
+
+input AuthWhereInput {
+  AND: [AuthWhereInput!]
+  OR: [AuthWhereInput!]
+  NOT: [AuthWhereInput!]
+  id: IntFilter
+  password: StringFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input AuthOrderByWithRelationInput {
+  id: SortOrder
+  password: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input AuthWhereUniqueInput {
+  id: Int
+}
+
+type Auth {
+  id: Int!
+  password: String!
+}
+
+enum AuthScalarFieldEnum {
+  id
+  password
+}
+
+type AuthGroupBy {
+  id: Int!
+  password: String!
+  _count: AuthCountAggregate
+  _avg: AuthAvgAggregate
+  _sum: AuthSumAggregate
+  _min: AuthMinAggregate
+  _max: AuthMaxAggregate
+}
+
+input AuthOrderByWithAggregationInput {
+  id: SortOrder
+  password: SortOrder
+  _count: AuthCountOrderByAggregateInput
+  _avg: AuthAvgOrderByAggregateInput
+  _max: AuthMaxOrderByAggregateInput
+  _min: AuthMinOrderByAggregateInput
+  _sum: AuthSumOrderByAggregateInput
+}
+
+input AuthCountOrderByAggregateInput {
+  id: SortOrder
+  password: SortOrder
+}
+
+input AuthAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+input AuthMaxOrderByAggregateInput {
+  id: SortOrder
+  password: SortOrder
+}
+
+input AuthMinOrderByAggregateInput {
+  id: SortOrder
+  password: SortOrder
+}
+
+input AuthSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input AuthScalarWhereWithAggregatesInput {
+  AND: [AuthScalarWhereWithAggregatesInput!]
+  OR: [AuthScalarWhereWithAggregatesInput!]
+  NOT: [AuthScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  password: StringWithAggregatesFilter
+}
+
+input IntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedIntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+input StringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+input NestedStringWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedStringFilter
+  _max: NestedStringFilter
+}
+
+type AggregateTempAccess {
+  _count: TempAccessCountAggregate
+  _avg: TempAccessAvgAggregate
+  _sum: TempAccessSumAggregate
+  _min: TempAccessMinAggregate
+  _max: TempAccessMaxAggregate
+}
+
+type TempAccessCountAggregate {
+  id: Int!
+  start_date: Int!
+  end_date: Int!
+  _all: Int!
+}
+
+type TempAccessAvgAggregate {
+  id: Float
+}
+
+type TempAccessSumAggregate {
+  id: Int
+}
+
+type TempAccessMinAggregate {
+  id: Int
+  start_date: DateTime
+  end_date: DateTime
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+type TempAccessMaxAggregate {
+  id: Int
+  start_date: DateTime
+  end_date: DateTime
+}
+
+input TempAccessWhereInput {
+  AND: [TempAccessWhereInput!]
+  OR: [TempAccessWhereInput!]
+  NOT: [TempAccessWhereInput!]
+  id: IntFilter
+  start_date: DateTimeFilter
+  end_date: DateTimeFilter
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input TempAccessOrderByWithRelationInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessWhereUniqueInput {
+  id: Int
+}
+
+type TempAccess {
+  id: Int!
+  start_date: DateTime!
+  end_date: DateTime!
+}
+
+enum TempAccessScalarFieldEnum {
+  id
+  start_date
+  end_date
+}
+
+type TempAccessGroupBy {
+  id: Int!
+  start_date: DateTime!
+  end_date: DateTime!
+  _count: TempAccessCountAggregate
+  _avg: TempAccessAvgAggregate
+  _sum: TempAccessSumAggregate
+  _min: TempAccessMinAggregate
+  _max: TempAccessMaxAggregate
+}
+
+input TempAccessOrderByWithAggregationInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+  _count: TempAccessCountOrderByAggregateInput
+  _avg: TempAccessAvgOrderByAggregateInput
+  _max: TempAccessMaxOrderByAggregateInput
+  _min: TempAccessMinOrderByAggregateInput
+  _sum: TempAccessSumOrderByAggregateInput
+}
+
+input TempAccessCountOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+input TempAccessMaxOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessMinOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input TempAccessScalarWhereWithAggregatesInput {
+  AND: [TempAccessScalarWhereWithAggregatesInput!]
+  OR: [TempAccessScalarWhereWithAggregatesInput!]
+  NOT: [TempAccessScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  start_date: DateTimeWithAggregatesFilter
+  end_date: DateTimeWithAggregatesFilter
+}
+
+input DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+type AggregateUserTypes {
+  _count: UserTypesCountAggregate
+  _avg: UserTypesAvgAggregate
+  _sum: UserTypesSumAggregate
+  _min: UserTypesMinAggregate
+  _max: UserTypesMaxAggregate
+}
+
+type UserTypesCountAggregate {
+  id: Int!
+  name: Int!
+  _all: Int!
+}
+
+type UserTypesAvgAggregate {
+  id: Float
+}
+
+type UserTypesSumAggregate {
+  id: Int
+}
+
+type UserTypesMinAggregate {
+  id: Int
+  name: String
+}
+
+type UserTypesMaxAggregate {
+  id: Int
+  name: String
+}
+
+input UserTypesWhereInput {
+  AND: [UserTypesWhereInput!]
+  OR: [UserTypesWhereInput!]
+  NOT: [UserTypesWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  Users: UsersListRelationFilter
+}
+
+input UsersListRelationFilter {
+  every: UsersWhereInput
+  some: UsersWhereInput
+  none: UsersWhereInput
+}
+
+input UsersWhereInput {
+  AND: [UsersWhereInput!]
+  OR: [UsersWhereInput!]
+  NOT: [UsersWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  user_type_id: IntFilter
+  user_type: UserTypesRelationFilter
+}
+
+input UserTypesRelationFilter {
+  is: UserTypesWhereInput
+  isNot: UserTypesWhereInput
+}
+
+input UserTypesOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  Users: UsersOrderByRelationAggregateInput
+}
+
+input UsersOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input UserTypesWhereUniqueInput {
+  id: Int
+}
+
+type UserTypes {
+  id: Int!
+  name: String!
+  _count: UserTypesCount
+  Users(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
+}
+
+type UserTypesCount {
+  Users: Int!
+}
+
+type Users {
+  id: Int!
+  name: String!
+  user_type_id: Int!
+  user_type: UserTypes!
+}
+
+input UsersOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  user_type: UserTypesOrderByWithRelationInput
+}
+
+input UsersWhereUniqueInput {
+  id: Int
+}
+
+enum UsersScalarFieldEnum {
+  id
+  name
+  user_type_id
+}
+
+enum UserTypesScalarFieldEnum {
+  id
+  name
+}
+
+type UserTypesGroupBy {
+  id: Int!
+  name: String!
+  _count: UserTypesCountAggregate
+  _avg: UserTypesAvgAggregate
+  _sum: UserTypesSumAggregate
+  _min: UserTypesMinAggregate
+  _max: UserTypesMaxAggregate
+}
+
+input UserTypesOrderByWithAggregationInput {
+  id: SortOrder
+  name: SortOrder
+  _count: UserTypesCountOrderByAggregateInput
+  _avg: UserTypesAvgOrderByAggregateInput
+  _max: UserTypesMaxOrderByAggregateInput
+  _min: UserTypesMinOrderByAggregateInput
+  _sum: UserTypesSumOrderByAggregateInput
+}
+
+input UserTypesCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+input UserTypesMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input UserTypesScalarWhereWithAggregatesInput {
+  AND: [UserTypesScalarWhereWithAggregatesInput!]
+  OR: [UserTypesScalarWhereWithAggregatesInput!]
+  NOT: [UserTypesScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+}
+
+type AggregateUsers {
+  _count: UsersCountAggregate
+  _avg: UsersAvgAggregate
+  _sum: UsersSumAggregate
+  _min: UsersMinAggregate
+  _max: UsersMaxAggregate
+}
+
+type UsersCountAggregate {
+  id: Int!
+  name: Int!
+  user_type_id: Int!
+  _all: Int!
+}
+
+type UsersAvgAggregate {
+  id: Float
+  user_type_id: Float
+}
+
+type UsersSumAggregate {
+  id: Int
+  user_type_id: Int
+}
+
+type UsersMinAggregate {
+  id: Int
+  name: String
+  user_type_id: Int
+}
+
+type UsersMaxAggregate {
+  id: Int
+  name: String
+  user_type_id: Int
+}
+
+type UsersGroupBy {
+  id: Int!
+  name: String!
+  user_type_id: Int!
+  _count: UsersCountAggregate
+  _avg: UsersAvgAggregate
+  _sum: UsersSumAggregate
+  _min: UsersMinAggregate
+  _max: UsersMaxAggregate
+}
+
+input UsersOrderByWithAggregationInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  _count: UsersCountOrderByAggregateInput
+  _avg: UsersAvgOrderByAggregateInput
+  _max: UsersMaxOrderByAggregateInput
+  _min: UsersMinOrderByAggregateInput
+  _sum: UsersSumOrderByAggregateInput
+}
+
+input UsersCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+}
+
+input UsersAvgOrderByAggregateInput {
+  id: SortOrder
+  user_type_id: SortOrder
+}
+
+input UsersMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+}
+
+input UsersMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+}
+
+input UsersSumOrderByAggregateInput {
+  id: SortOrder
+  user_type_id: SortOrder
+}
+
+input UsersScalarWhereWithAggregatesInput {
+  AND: [UsersScalarWhereWithAggregatesInput!]
+  OR: [UsersScalarWhereWithAggregatesInput!]
+  NOT: [UsersScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  user_type_id: IntWithAggregatesFilter
+}
+
+type Mutation {
+  createOneAuth(data: AuthCreateInput!): Auth!
+  deleteManyAuth(where: AuthWhereInput): AffectedRowsOutput!
+  deleteOneAuth(where: AuthWhereUniqueInput!): Auth
+  updateManyAuth(data: AuthUpdateManyMutationInput!, where: AuthWhereInput): AffectedRowsOutput!
+  updateOneAuth(data: AuthUpdateInput!, where: AuthWhereUniqueInput!): Auth
+  upsertOneAuth(where: AuthWhereUniqueInput!, create: AuthCreateInput!, update: AuthUpdateInput!): Auth!
+  createOneTempAccess(data: TempAccessCreateInput!): TempAccess!
+  deleteManyTempAccess(where: TempAccessWhereInput): AffectedRowsOutput!
+  deleteOneTempAccess(where: TempAccessWhereUniqueInput!): TempAccess
+  updateManyTempAccess(data: TempAccessUpdateManyMutationInput!, where: TempAccessWhereInput): AffectedRowsOutput!
+  updateOneTempAccess(data: TempAccessUpdateInput!, where: TempAccessWhereUniqueInput!): TempAccess
+  upsertOneTempAccess(where: TempAccessWhereUniqueInput!, create: TempAccessCreateInput!, update: TempAccessUpdateInput!): TempAccess!
+  createOneUserTypes(data: UserTypesCreateInput!): UserTypes!
+  deleteManyUserTypes(where: UserTypesWhereInput): AffectedRowsOutput!
+  deleteOneUserTypes(where: UserTypesWhereUniqueInput!): UserTypes
+  updateManyUserTypes(data: UserTypesUpdateManyMutationInput!, where: UserTypesWhereInput): AffectedRowsOutput!
+  updateOneUserTypes(data: UserTypesUpdateInput!, where: UserTypesWhereUniqueInput!): UserTypes
+  upsertOneUserTypes(where: UserTypesWhereUniqueInput!, create: UserTypesCreateInput!, update: UserTypesUpdateInput!): UserTypes!
+  createOneUsers(data: UsersCreateInput!): Users!
+  deleteManyUsers(where: UsersWhereInput): AffectedRowsOutput!
+  deleteOneUsers(where: UsersWhereUniqueInput!): Users
+  updateManyUsers(data: UsersUpdateManyMutationInput!, where: UsersWhereInput): AffectedRowsOutput!
+  updateOneUsers(data: UsersUpdateInput!, where: UsersWhereUniqueInput!): Users
+  upsertOneUsers(where: UsersWhereUniqueInput!, create: UsersCreateInput!, update: UsersUpdateInput!): Users!
+}
+
+input AuthCreateInput {
+  id: Int!
+  password: String!
+}
+
+type AffectedRowsOutput {
+  count: Int!
+}
+
+input AuthUpdateManyMutationInput {
+  id: IntFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+}
+
+input IntFieldUpdateOperationsInput {
+  set: Int
+  increment: Int
+  decrement: Int
+  multiply: Int
+  divide: Int
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input AuthUpdateInput {
+  id: IntFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+}
+
+input TempAccessCreateInput {
+  id: Int!
+  start_date: DateTime!
+  end_date: DateTime!
+}
+
+input TempAccessUpdateManyMutationInput {
+  id: IntFieldUpdateOperationsInput
+  start_date: DateTimeFieldUpdateOperationsInput
+  end_date: DateTimeFieldUpdateOperationsInput
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input TempAccessUpdateInput {
+  id: IntFieldUpdateOperationsInput
+  start_date: DateTimeFieldUpdateOperationsInput
+  end_date: DateTimeFieldUpdateOperationsInput
+}
+
+input UserTypesCreateInput {
+  name: String!
+  Users: UsersCreateNestedManyWithoutUser_typeInput
+}
+
+input UsersCreateNestedManyWithoutUser_typeInput {
+  create: [UsersCreateWithoutUser_typeInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutUser_typeInput!]
+  connect: [UsersWhereUniqueInput!]
+}
+
+input UsersCreateWithoutUser_typeInput {
+  name: String!
+}
+
+input UsersCreateOrConnectWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  create: UsersCreateWithoutUser_typeInput!
+}
+
+input UserTypesUpdateManyMutationInput {
+  name: StringFieldUpdateOperationsInput
+}
+
+input UserTypesUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  Users: UsersUpdateManyWithoutUser_typeNestedInput
+}
+
+input UsersUpdateManyWithoutUser_typeNestedInput {
+  create: [UsersCreateWithoutUser_typeInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutUser_typeInput!]
+  upsert: [UsersUpsertWithWhereUniqueWithoutUser_typeInput!]
+  set: [UsersWhereUniqueInput!]
+  disconnect: [UsersWhereUniqueInput!]
+  delete: [UsersWhereUniqueInput!]
+  connect: [UsersWhereUniqueInput!]
+  update: [UsersUpdateWithWhereUniqueWithoutUser_typeInput!]
+  updateMany: [UsersUpdateManyWithWhereWithoutUser_typeInput!]
+  deleteMany: [UsersScalarWhereInput!]
+}
+
+input UsersUpsertWithWhereUniqueWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  update: UsersUpdateWithoutUser_typeInput!
+  create: UsersCreateWithoutUser_typeInput!
+}
+
+input UsersUpdateWithoutUser_typeInput {
+  name: StringFieldUpdateOperationsInput
+}
+
+input UsersUpdateWithWhereUniqueWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  data: UsersUpdateWithoutUser_typeInput!
+}
+
+input UsersUpdateManyWithWhereWithoutUser_typeInput {
+  where: UsersScalarWhereInput!
+  data: UsersUpdateManyMutationInput!
+}
+
+input UsersScalarWhereInput {
+  AND: [UsersScalarWhereInput!]
+  OR: [UsersScalarWhereInput!]
+  NOT: [UsersScalarWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  user_type_id: IntFilter
+}
+
+input UsersUpdateManyMutationInput {
+  name: StringFieldUpdateOperationsInput
+}
+
+input UsersCreateInput {
+  name: String!
+  user_type: UserTypesCreateNestedOneWithoutUsersInput!
+}
+
+input UserTypesCreateNestedOneWithoutUsersInput {
+  create: UserTypesCreateWithoutUsersInput
+  connectOrCreate: UserTypesCreateOrConnectWithoutUsersInput
+  connect: UserTypesWhereUniqueInput
+}
+
+input UserTypesCreateWithoutUsersInput {
+  name: String!
+}
+
+input UserTypesCreateOrConnectWithoutUsersInput {
+  where: UserTypesWhereUniqueInput!
+  create: UserTypesCreateWithoutUsersInput!
+}
+
+input UsersUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  user_type: UserTypesUpdateOneRequiredWithoutUsersNestedInput
+}
+
+input UserTypesUpdateOneRequiredWithoutUsersNestedInput {
+  create: UserTypesCreateWithoutUsersInput
+  connectOrCreate: UserTypesCreateOrConnectWithoutUsersInput
+  upsert: UserTypesUpsertWithoutUsersInput
+  connect: UserTypesWhereUniqueInput
+  update: UserTypesUpdateWithoutUsersInput
+}
+
+input UserTypesUpsertWithoutUsersInput {
+  update: UserTypesUpdateWithoutUsersInput!
+  create: UserTypesCreateWithoutUsersInput!
+}
+
+input UserTypesUpdateWithoutUsersInput {
+  name: StringFieldUpdateOperationsInput
+}
