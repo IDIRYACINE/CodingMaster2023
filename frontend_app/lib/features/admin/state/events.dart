@@ -6,5 +6,5 @@ class RegisterUsersFromExcel extends AdminEvents {
 
 class LoadUsers extends AdminEvents {}
 
-class ViewStatistiques extends AdminEvents {}
+class ViewStats extends AdminEvents {}
 
