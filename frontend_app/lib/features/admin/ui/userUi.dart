@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:frontend_app/features/login/state/composents/defaultButton.dart';
 
 class MyWidget extends StatefulWidget {
   const MyWidget({super.key});
@@ -10,6 +11,25 @@ class MyWidget extends StatefulWidget {
 class _MyWidgetState extends State<MyWidget> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisSize: MainAxisSize.max,
+      children: [
+Row(
+  mainAxisSize: MainAxisSize.max,
+  children: [
+    defaultButton(function: (){}, text: "Upload .xls"),
+    SizedBox(
+      width: 5,
+    ),
+    defaultButton(function: (){}, text: "Download .xls"),
+],), 
+SizedBox(
+          height: 5,
+        ),
+defaultButton(function: () {}, text: "View Stat"),
+      ],
+    );
   }
 }
