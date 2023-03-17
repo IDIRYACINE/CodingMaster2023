@@ -7,7 +7,7 @@ class DownloadUsers extends Command<DownloadUsersEventData, DownloadUsersRawEven
     DownloadUsersResponse> {
   static final eventId = AdminApi.downloadUsers.index;
   static final eventName = AdminApi.downloadUsers.name;
-  static final serviceId = Services.AdminService.index;
+  static final serviceId = Services.adminService.index;
 
   DownloadUsers() : super(eventId, eventName);
 

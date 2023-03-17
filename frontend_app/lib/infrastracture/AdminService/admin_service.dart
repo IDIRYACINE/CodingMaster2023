@@ -1,14 +1,13 @@
 
 import 'package:frontend_app/infrastracture/AdminService/api.dart';
 
-import '../../application/GraphQlHelpers/graphql_utility.dart';
 import '../../application/ServiceStore/search_algorithm.dart';
 import '../../application/ServiceStore/service_store.dart';
 import '../helpers.dart';
 import '../services.dart';
 
-final _adminServiceId = Services.AdminService.index;
-final _adminServiceName = Services.AdminService.name;
+final _adminServiceId = Services.adminService.index;
+final _adminServiceName = Services.adminService.name;
 
 class AdminService extends Service {
   AdminService._(
@@ -49,7 +48,6 @@ class AdminService extends Service {
   static void _registerBaseCommands(AdminService instance) {
     instance.initCommands(AdminApi.values.length);
 
-    final graphQl = getGraphQlClient();
     // instance.replaceCommandAtIndex(LoadProductFamillies(graphQl));
   }
 }

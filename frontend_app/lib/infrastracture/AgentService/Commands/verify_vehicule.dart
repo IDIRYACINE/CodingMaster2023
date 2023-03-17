@@ -6,7 +6,7 @@ class VerifyVehicule extends Command<VerifyVehiculeEventData,
     VerifyVehiculeRawEventData, VerifyVehiculeResponse> {
   static final eventId = AgentApi.verifyVehicule.index;
   static final eventName = AgentApi.verifyVehicule.name;
-  static final serviceId = Services.AgentService.index;
+  static final serviceId = Services.agentService.index;
 
   VerifyVehicule() : super(eventId, eventName);
 

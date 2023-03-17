@@ -8,8 +8,8 @@ import '../services.dart';
 import 'Commands/get_user_data.dart';
 import 'api.dart';
 
-final _stockServiceId = Services.UsersService.index;
-final _stockServiceName = Services.UsersService.name;
+final _stockServiceId = Services.usersService.index;
+final _stockServiceName = Services.usersService.name;
 
 class UserService extends Service {
   UserService._(

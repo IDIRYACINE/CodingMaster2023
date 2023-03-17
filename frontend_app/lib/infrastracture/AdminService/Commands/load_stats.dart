@@ -7,7 +7,7 @@ class LoadAllStats extends Command<LoadAllStatsEventData, LoadAllStatsRawEventDa
     LoadAllStatsResponse> {
   static final eventId = AdminApi.loadAllStats.index;
   static final eventName = AdminApi.loadAllStats.name;
-  static final serviceId = Services.AdminService.index;
+  static final serviceId = Services.adminService.index;
 
   LoadAllStats() : super(eventId, eventName);
 

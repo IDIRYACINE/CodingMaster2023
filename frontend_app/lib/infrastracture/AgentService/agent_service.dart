@@ -2,13 +2,12 @@
 import 'package:frontend_app/application/ServiceStore/search_algorithm.dart';
 import 'package:frontend_app/infrastracture/services.dart';
 
-import '../../application/GraphQlHelpers/graphql_utility.dart';
 import '../../application/ServiceStore/service_store.dart';
 import '../helpers.dart';
 import 'api.dart';
 
-final _stockServiceId = Services.AgentService.index;
-final _stockServiceName = Services.AgentService.name;
+final _stockServiceId = Services.agentService.index;
+final _stockServiceName = Services.agentService.name;
 
 class AgentService extends Service {
   AgentService._(
@@ -49,7 +48,6 @@ class AgentService extends Service {
   static void _registerBaseCommands(AgentService instance) {
     instance.initCommands(AgentApi.values.length);
 
-    final graphQl = getGraphQlClient();
     // instance.replaceCommandAtIndex(LoadProductFamillies(graphQl));
   }
 }

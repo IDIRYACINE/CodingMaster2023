@@ -6,7 +6,7 @@ import '../api.dart';
 class Login extends Command<LoginEventData, LoginRawEventData, LoginResponse> {
   static final eventId = AuthApi.login.index;
   static final eventName = AuthApi.login.name;
-  static final serviceId = Services.AuthService.index;
+  static final serviceId = Services.authService.index;
 
   Login() : super(eventId, eventName);
 

@@ -7,7 +7,7 @@ class RegisterVehicule extends Command<RegisterVehiculeEventData,
     RegisterVehiculeRawEventData, RegisterVehiculeResponse> {
   static final eventId = AgentApi.registerVehicule.index;
   static final eventName = AgentApi.registerVehicule.name;
-  static final serviceId = Services.AgentService.index;
+  static final serviceId = Services.agentService.index;
 
   RegisterVehicule() : super(eventId, eventName);
 

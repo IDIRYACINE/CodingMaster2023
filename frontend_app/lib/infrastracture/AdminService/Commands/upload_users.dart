@@ -6,7 +6,7 @@ class UploadUsers extends Command<UploadUsersEventData, UploadUsersRawEventData,
     UploadUsersResponse> {
   static final eventId = AdminApi.uploadUsers.index;
   static final eventName = AdminApi.uploadUsers.name;
-  static final serviceId = Services.AdminService.index;
+  static final serviceId = Services.adminService.index;
 
   UploadUsers() : super(eventId, eventName);
 

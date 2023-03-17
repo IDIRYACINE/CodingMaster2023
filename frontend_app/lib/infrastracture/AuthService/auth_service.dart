@@ -2,14 +2,13 @@
 
 import 'package:frontend_app/infrastracture/services.dart';
 
-import '../../application/GraphQlHelpers/graphql_utility.dart';
 import '../../application/ServiceStore/search_algorithm.dart';
 import '../../application/ServiceStore/service_store.dart';
 import '../helpers.dart';
 import 'api.dart';
 
-final _stockServiceId = Services.AuthService.index;
-final _stockServiceName = Services.AuthService.name;
+final _stockServiceId = Services.authService.index;
+final _stockServiceName = Services.authService.name;
 
 class AuthService extends Service {
   AuthService._(
@@ -50,7 +49,7 @@ class AuthService extends Service {
   static void _registerBaseCommands(AuthService instance) {
     instance.initCommands(AuthApi.values.length);
 
-    final graphQl = getGraphQlClient();
+    // final graphQl = getGraphQlClient();
 
     // instance.replaceCommandAtIndex(LoadProductFamillies(graphQl));
   }

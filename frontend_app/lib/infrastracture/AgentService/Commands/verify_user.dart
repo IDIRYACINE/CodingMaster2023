@@ -6,7 +6,7 @@ class VerifyUser extends Command<VerifyUserEventData, VerifyUserRawEventData,
     VerifyUserResponse> {
   static final eventId = AgentApi.verifyUser.index;
   static final eventName = AgentApi.verifyUser.name;
-  static final serviceId = Services.AgentService.index;
+  static final serviceId = Services.agentService.index;
 
   VerifyUser() : super(eventId, eventName);
 

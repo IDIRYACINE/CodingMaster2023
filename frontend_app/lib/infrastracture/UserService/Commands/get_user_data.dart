@@ -8,7 +8,7 @@ class GetUserData extends Command<GetUserDataEventData, GetUserDataRawEventData,
     GetUserDataResponse> {
   static final eventId = UserApi.getUserData.index;
   static final eventName = UserApi.getUserData.name;
-  static final serviceId = Services.UsersService.index;
+  static final serviceId = Services.usersService.index;
 
   final GraphQLClient graphQl;
 
