@@ -1,3 +1,0 @@
-enum AuthApi{
-  login
-}
