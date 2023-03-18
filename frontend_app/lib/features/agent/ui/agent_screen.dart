@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:frontend_app/features/agent/feature.dart';
 
 class AgentScreen extends StatelessWidget {
   const AgentScreen({super.key});
@@ -10,9 +11,11 @@ class AgentScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Agent'),
       ),
-      body: const Center(
-        child: Text('Agent'),
-      ),
+      body: BlocBuilder<AgentBloc, AgentState>(builder: (context, state) {
+        return Center(
+          child: state.selectedScreen,
+        );
+      }),
     );
   }
 }

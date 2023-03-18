@@ -5,5 +5,5 @@ import 'events.dart';
 import 'state.dart';
 
 class AgentBloc extends Bloc<AgentEvent, AgentState> {
-  AgentBloc() : super(AgentState());
+  AgentBloc() : super(AgentState.initial());
 }
