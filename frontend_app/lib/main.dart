@@ -4,13 +4,22 @@ import 'package:frontend_app/features/login/state/bloc.dart';
 import 'package:frontend_app/features/splash/ui/splash_screen.dart';
 
 import 'application/navigation/app_navigation.dart';
+import 'features/admin/feature.dart';
+import 'features/agent/feature.dart';
+import 'features/user/feature.dart';
 
 void main() {
-  runApp(MultiBlocProvider(
-    providers: [
-      BlocProvider(create: (context) => AuthBloc()),
-    ],
-    child: const Uniway(),),);
+  runApp(
+    MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => AuthBloc()),
+        BlocProvider(create: (context) => UserBloc()),
+        BlocProvider(create: (context) => AdminBloc()),
+        BlocProvider(create: (context) => AgentBloc()),
+      ],
+      child: const Uniway(),
+    ),
+  );
 }
 
 class Uniway extends StatelessWidget {
@@ -26,7 +35,6 @@ class Uniway extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       onGenerateRoute: AppRouter.generateRoutes,
-
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }

@@ -2,13 +2,33 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend_app/features/login/ui/login_screen.dart';
+import 'package:frontend_app/features/admin/feature.dart';
+import 'package:frontend_app/features/agent/feature.dart';
+import 'package:frontend_app/features/login/feature.dart';
 import 'package:frontend_app/features/splash/feature.dart';
-
+import 'package:frontend_app/features/user/feature.dart';
 
 abstract class AppRouter {
   static Route<dynamic> generateRoutes(RouteSettings settings) {
     switch (settings.name) {
+      case userRoute:
+        return getPageRoute(
+          settings: settings,
+          view: const UserScreen(),
+        );
+
+      case adminRoute:
+        return getPageRoute(
+          settings: settings,
+          view: const AdminScreen(),
+        );
+
+      case agentRoute:
+        return getPageRoute(
+          settings: settings,
+          view: const AgentScreen(),
+        );
+
       case loginRoute:
         return getPageRoute(
           settings: settings,
