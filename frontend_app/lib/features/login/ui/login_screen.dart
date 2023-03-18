@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/features/login/feature.dart';
 import 'package:frontend_app/features/login/logic/helpers.dart';
+import 'package:frontend_app/ui/constants.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,7 +21,7 @@ class LoginScreen extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const Text('Uniway Logo'),
+                      const Image(image: AssetImage(splashLogo),),
                       TextFormField(
                         decoration: const InputDecoration(
                           hintText: 'Id',

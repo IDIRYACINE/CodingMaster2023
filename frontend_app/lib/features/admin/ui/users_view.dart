@@ -21,9 +21,9 @@ class UsersView extends StatelessWidget {
         ),
         floatingActionButton: IconButton(
             onPressed: () {
-               importUsersFromExcel(context).then((users) {
-                if(users.isNotEmpty){
-                  registerUsers(users,context);
+              importUsersFromExcel(context).then((users) {
+                if (users.isNotEmpty) {
+                  registerUsers(users, context);
                 }
               });
             },

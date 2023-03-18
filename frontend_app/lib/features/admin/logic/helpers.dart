@@ -89,11 +89,16 @@ Future<List<User>> importTempUsersFromExcel(BuildContext context) async {
 }
 
 UserTypes _userTypeFromString(String data) {
+  data = data.toLowerCase();
+
   switch (data) {
     case "student":
       return UserTypes.student;
     case "admin":
       return UserTypes.admin;
+
+    case "visitor":
+      return UserTypes.temporaryUser;
 
     default:
       return UserTypes.employee;

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:frontend_app/application/navigation/feature.dart';
 import 'package:frontend_app/dataModels/user.dart';
+import 'package:frontend_app/features/login/ui/qr_scan_view.dart';
 import 'package:frontend_app/infrastracture/services.dart';
 import 'package:frontend_app/ui/dialogs.dart';
+
+import 'controller.dart';
 
 class LoginController {
   LoginController();
@@ -29,7 +33,7 @@ class LoginController {
   }
 
   void loginWithQr() {
-    AppNavigator.pushNamedReplacement(userRoute);
+    AppNavigator.pushReplacement(const AuthQrScanView());
   }
 
   void _navigateToUserRoleRoute(UserTypes userType) {
@@ -44,4 +48,11 @@ class LoginController {
         AppNavigator.pushNamedReplacement(userRoute);
     }
   }
+}
+
+
+Future<void> startQrScanStream(QrWidgetController controller) async {
+  FlutterBarcodeScanner.getBarcodeStreamReceiver(
+          '#ff6666', 'Cancel', true, ScanMode.QR)!
+      .listen((barcode) => controller.onQrScan(barcode));
 }

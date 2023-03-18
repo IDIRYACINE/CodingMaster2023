@@ -40,6 +40,12 @@ abstract class AppNavigator {
     );
   }
 
+  static Future pushReplacement(Widget page) {
+    return key.currentState!.pushReplacement(
+      MaterialPageRoute(builder: (_) => page),
+    );
+  }
+
   static Future<bool> maybePop([result]) {
     return key.currentState!.maybePop(result);
   }

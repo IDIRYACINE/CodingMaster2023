@@ -16,14 +16,12 @@ class AuthService {
     final options =
         graphql_service.Options$Query$FindUniqueUsers(variables: variables);
 
-    return _graphQlClient
-        .query(options)
-        .then((response)  {
-            return userFromJson(response.data!['findUniqueUsers']);
-        });
+    return _graphQlClient.query(options).then((response) {
+      return userFromJson(response.data!['findUniqueUsers']);
+    });
   }
 
-  Future<bool> loginWithQr(String identifier) async {
+  Future<User?> loginWithQr(String identifier) async {
     final variables = graphql_service.Variables$Query$FindFirstQrAuth(
         where: graphql_service.Input$QrAuthWhereInput(
       identifier: graphql_service.Input$StringFilter(
@@ -36,6 +34,6 @@ class AuthService {
 
     return _graphQlClient
         .query(options)
-        .then((response) => response.data != null);
+        .then((response) => userFromJson(response.data!['findFirstQrAuth']));
   }
 }
