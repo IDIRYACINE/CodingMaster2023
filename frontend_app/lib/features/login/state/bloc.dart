@@ -6,6 +6,6 @@ import 'state.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
-  AuthBloc() : super(AuthState());
+  AuthBloc() : super(AuthState.initial());
 
 }
