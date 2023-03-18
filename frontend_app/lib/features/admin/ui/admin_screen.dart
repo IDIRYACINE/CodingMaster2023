@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/dataModels/user.dart';
 import 'package:frontend_app/features/admin/feature.dart';
+import 'package:frontend_app/features/admin/logic/helpers.dart';
 import 'package:frontend_app/ui/bottom_bar.dart';
 
 class AdminScreen extends StatelessWidget {
@@ -9,6 +10,8 @@ class AdminScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    loadAllUsers(BlocProvider.of<AdminBloc>(context));
+
     return BlocBuilder<AdminBloc, AdminState>(
       builder: (context, state) {
         return Scaffold(

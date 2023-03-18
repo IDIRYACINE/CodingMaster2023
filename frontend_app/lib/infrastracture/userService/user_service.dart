@@ -23,6 +23,8 @@ class UserService {
   Future<List<User>> loadAllUsers() async {
     final options = graphql_service.Options$Query$FindManyUsers();
 
-    return _graphQlClient.query(options).then((response) => []);
+    return _graphQlClient.query(options).then((response) => 
+    userListFromJson(
+    response.data!["findManyUsers"]));
   }
 }

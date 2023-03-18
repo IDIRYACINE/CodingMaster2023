@@ -1,3 +1,4 @@
+import 'package:frontend_app/dataModels/user.dart';
 import 'package:graphql/client.dart';
 import '../graphQlService/feature.dart' as graphql_service;
 
@@ -6,7 +7,7 @@ class AuthService {
 
   AuthService(this._graphQlClient);
 
-  Future<bool> loginWithCredentials(String id, String password) async {
+  Future<User?> loginWithCredentials(String id, String password) async {
     final variables = graphql_service.Variables$Query$FindUniqueUsers(
         where: graphql_service.Input$UsersWhereUniqueInput(
       id: id,
@@ -17,7 +18,9 @@ class AuthService {
 
     return _graphQlClient
         .query(options)
-        .then((response) => response.data != null);
+        .then((response)  {
+            return userFromJson(response.data!['findUniqueUsers']);
+        });
   }
 
   Future<bool> loginWithQr(String identifier) async {

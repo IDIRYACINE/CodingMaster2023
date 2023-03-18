@@ -10,6 +10,7 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
     on<LoadUserStatsEvent>(_loadUserStats);
     on<ImportUsersEventResult>(_importUsersEventResult);
     on<LoadUsersEvent>(_loadUsers);
+    on<NavigateToScreenEvent>(_navigateToScreen);
   }
 
   FutureOr<void> _loadUserStats(
@@ -29,6 +30,14 @@ class AdminBloc extends Bloc<AdminEvent, AdminState> {
   FutureOr<void> _loadUsers(LoadUsersEvent event, Emitter<AdminState> emit) {
     emit(state.copyWith(
       users: event.users,
+    ));
+  }
+
+  FutureOr<void> _navigateToScreen(NavigateToScreenEvent event, Emitter<AdminState> emit) {
+    
+    emit(state.copyWith(
+      selectedIndex: event.screnIndex,
+      selectedScreen: state.screens[event.screnIndex]
     ));
   }
 }

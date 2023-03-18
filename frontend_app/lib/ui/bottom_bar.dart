@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/dataModels/user.dart';
 import 'package:frontend_app/features/admin/feature.dart' as admin;
+import 'package:frontend_app/features/admin/feature.dart';
 import 'package:frontend_app/features/user/feature.dart' as user;
+import 'package:frontend_app/features/user/feature.dart';
 
 class UserBottomBar extends StatelessWidget {
   final UserTypes userType;
@@ -14,7 +16,7 @@ class UserBottomBar extends StatelessWidget {
   }
 
   void _onItemTap(int index, BuildContext context) {
-    if (userType == UserTypes.admin) {
+    if ((userType == UserTypes.employee) || (userType == UserTypes.student)) {
       BlocProvider.of<user.UserBloc>(context)
           .add(user.NavigateToScreenEvent(index));
       return;
@@ -23,22 +25,22 @@ class UserBottomBar extends StatelessWidget {
         .add(admin.NavigateToScreenEvent(screnIndex: index));
   }
 
-  int getCurrentIndex(BuildContext context) {
-    if (userType == UserTypes.admin) {
-      return BlocProvider.of<user.UserBloc>(context)
-          .state.selectedIndex;
-    }
-    return BlocProvider.of<admin.AdminBloc>(context)
-        .state.selectedIndex;
-  }
-
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-        currentIndex:
-            getCurrentIndex(context),
-        items: buildItems(userType),
-        onTap: (index) => _onItemTap(index, context));
+    if (userType == UserTypes.employee || userType == UserTypes.student) {
+      return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
+        return BottomNavigationBar(
+            currentIndex: state.selectedIndex,
+            items: buildItems(userType),
+            onTap: (index) => _onItemTap(index, context));
+      });
+    }
+    return BlocBuilder<AdminBloc, AdminState>(builder: (context, state) {
+      return BottomNavigationBar(
+          currentIndex: state.selectedIndex,
+          items: buildItems(userType),
+          onTap: (index) => _onItemTap(index, context));
+    });
   }
 }
 
