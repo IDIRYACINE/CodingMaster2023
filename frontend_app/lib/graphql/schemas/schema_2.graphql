@@ -1,0 +1,245 @@
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input StringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input NestedStringNullableFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableFilter
+}
+
+input UserTypesRelationFilter {
+  is: UserTypesWhereInput
+  isNot: UserTypesWhereInput
+}
+
+input UserTypesWhereInput {
+  AND: [UserTypesWhereInput!]
+  OR: [UserTypesWhereInput!]
+  NOT: [UserTypesWhereInput!]
+  id: IntFilter
+  name: StringFilter
+  Users: UsersListRelationFilter
+}
+
+input TempAccessRelationFilter {
+  is: TempAccessWhereInput
+  isNot: TempAccessWhereInput
+}
+
+input TempAccessWhereInput {
+  AND: [TempAccessWhereInput!]
+  OR: [TempAccessWhereInput!]
+  NOT: [TempAccessWhereInput!]
+  id: StringFilter
+  start_date: DateTimeFilter
+  end_date: DateTimeFilter
+  Users: UsersListRelationFilter
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input QrAuthRelationFilter {
+  is: QrAuthWhereInput
+  isNot: QrAuthWhereInput
+}
+
+input QrAuthOrderByWithRelationInput {
+  user_id: SortOrder
+  identifier: SortOrder
+  Users: UsersOrderByRelationAggregateInput
+}
+
+input UsersOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input QrAuthWhereUniqueInput {
+  user_id: String
+}
+
+type QrAuth {
+  user_id: String!
+  identifier: String!
+  _count: QrAuthCount
+  Users(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
+}
+
+type QrAuthCount {
+  Users: Int!
+}
+
+type Users {
+  id: String!
+  name: String!
+  user_type_id: Int!
+  tempAccessId: String
+  qrAuthUser_id: String!
+  user_type: UserTypes!
+  temp_acess: TempAccess
+  qr_auth: QrAuth!
+}
+
+type UserTypes {
+  id: Int!
+  name: String!
+  _count: UserTypesCount
+  Users(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
+}
+
+type UserTypesCount {
+  Users: Int!
+}
+
+input UsersOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  tempAccessId: SortOrder
+  qrAuthUser_id: SortOrder
+  user_type: UserTypesOrderByWithRelationInput
+  temp_acess: TempAccessOrderByWithRelationInput
+  qr_auth: QrAuthOrderByWithRelationInput
+}
+
+input UserTypesOrderByWithRelationInput {
+  id: SortOrder
+  name: SortOrder
+  Users: UsersOrderByRelationAggregateInput
+}
+
+input TempAccessOrderByWithRelationInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+  Users: UsersOrderByRelationAggregateInput
+}
+
+input UsersWhereUniqueInput {
+  id: String
+}
+
+enum UsersScalarFieldEnum {
+  id
+  name
+  user_type_id
+  tempAccessId
+  qrAuthUser_id
+}
+
+type TempAccess {
+  id: String!
+  start_date: DateTime!
+  end_date: DateTime!
+  _count: TempAccessCount
+  Users(where: UsersWhereInput, orderBy: [UsersOrderByWithRelationInput!], cursor: UsersWhereUniqueInput, take: Int, skip: Int, distinct: [UsersScalarFieldEnum!]): [Users!]!
+}
+
+type TempAccessCount {
+  Users: Int!
+}
+
+enum QrAuthScalarFieldEnum {
+  user_id
+  identifier
+}
+
+type QrAuthGroupBy {
+  user_id: String!
+  identifier: String!
+  _count: QrAuthCountAggregate
+  _min: QrAuthMinAggregate
+  _max: QrAuthMaxAggregate
+}
+
+input QrAuthOrderByWithAggregationInput {
+  user_id: SortOrder
+  identifier: SortOrder
+  _count: QrAuthCountOrderByAggregateInput
+  _max: QrAuthMaxOrderByAggregateInput
+  _min: QrAuthMinOrderByAggregateInput
+}
+
+input QrAuthCountOrderByAggregateInput {
+  user_id: SortOrder
+  identifier: SortOrder
+}
+
+input QrAuthMaxOrderByAggregateInput {
+  user_id: SortOrder
+  identifier: SortOrder
+}
+
+input QrAuthMinOrderByAggregateInput {
+  user_id: SortOrder
+  identifier: SortOrder
+}
+
+input QrAuthScalarWhereWithAggregatesInput {
+  AND: [QrAuthScalarWhereWithAggregatesInput!]
+  OR: [QrAuthScalarWhereWithAggregatesInput!]
+  NOT: [QrAuthScalarWhereWithAggregatesInput!]
+  user_id: StringWithAggregatesFilter
+  identifier: StringWithAggregatesFilter
+}
+
+type AggregateTempAccess {
+  _count: TempAccessCountAggregate
+  _min: TempAccessMinAggregate
+  _max: TempAccessMaxAggregate
+}

@@ -1,6 +1,7 @@
 import 'adminService/admin_service.dart';
 import 'agentService/agent_service.dart';
 import 'authService/auth_service.dart';
+import 'graphQlService/feature.dart';
 import 'userService/user_service.dart';
 
 class ServicesGateway {
@@ -13,13 +14,15 @@ class ServicesGateway {
   }
 
   ServicesGateway._() {
-    userService = UserService();
+    final graphQlClient = buildGraphQlClient();
 
-    adminService = AdminService();
+    userService = UserService(graphQlClient);
 
-    authService = AuthService();
+    adminService = AdminService(graphQlClient);
 
-    agentService = AgentService();
+    authService = AuthService(graphQlClient);
+
+    agentService = AgentService(graphQlClient);
   }
 
   late UserService userService;

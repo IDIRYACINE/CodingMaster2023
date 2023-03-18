@@ -1,0 +1,334 @@
+
+enum VehiculesScalarFieldEnum {
+  user_id
+  matricule
+}
+
+type VehiculesGroupBy {
+  user_id: String!
+  matricule: String!
+  _count: VehiculesCountAggregate
+  _min: VehiculesMinAggregate
+  _max: VehiculesMaxAggregate
+}
+
+input VehiculesOrderByWithAggregationInput {
+  user_id: SortOrder
+  matricule: SortOrder
+  _count: VehiculesCountOrderByAggregateInput
+  _max: VehiculesMaxOrderByAggregateInput
+  _min: VehiculesMinOrderByAggregateInput
+}
+
+input VehiculesCountOrderByAggregateInput {
+  user_id: SortOrder
+  matricule: SortOrder
+}
+
+input VehiculesMaxOrderByAggregateInput {
+  user_id: SortOrder
+  matricule: SortOrder
+}
+
+input VehiculesMinOrderByAggregateInput {
+  user_id: SortOrder
+  matricule: SortOrder
+}
+
+input VehiculesScalarWhereWithAggregatesInput {
+  AND: [VehiculesScalarWhereWithAggregatesInput!]
+  OR: [VehiculesScalarWhereWithAggregatesInput!]
+  NOT: [VehiculesScalarWhereWithAggregatesInput!]
+  user_id: StringWithAggregatesFilter
+  matricule: StringWithAggregatesFilter
+}
+
+type Mutation {
+  createOneAuth(data: AuthCreateInput!): Auth!
+  deleteManyAuth(where: AuthWhereInput): AffectedRowsOutput!
+  deleteOneAuth(where: AuthWhereUniqueInput!): Auth
+  updateManyAuth(data: AuthUpdateManyMutationInput!, where: AuthWhereInput): AffectedRowsOutput!
+  updateOneAuth(data: AuthUpdateInput!, where: AuthWhereUniqueInput!): Auth
+  upsertOneAuth(where: AuthWhereUniqueInput!, create: AuthCreateInput!, update: AuthUpdateInput!): Auth!
+  createOneQrAuth(data: QrAuthCreateInput!): QrAuth!
+  deleteManyQrAuth(where: QrAuthWhereInput): AffectedRowsOutput!
+  deleteOneQrAuth(where: QrAuthWhereUniqueInput!): QrAuth
+  updateManyQrAuth(data: QrAuthUpdateManyMutationInput!, where: QrAuthWhereInput): AffectedRowsOutput!
+  updateOneQrAuth(data: QrAuthUpdateInput!, where: QrAuthWhereUniqueInput!): QrAuth
+  upsertOneQrAuth(where: QrAuthWhereUniqueInput!, create: QrAuthCreateInput!, update: QrAuthUpdateInput!): QrAuth!
+  createOneTempAccess(data: TempAccessCreateInput!): TempAccess!
+  deleteManyTempAccess(where: TempAccessWhereInput): AffectedRowsOutput!
+  deleteOneTempAccess(where: TempAccessWhereUniqueInput!): TempAccess
+  updateManyTempAccess(data: TempAccessUpdateManyMutationInput!, where: TempAccessWhereInput): AffectedRowsOutput!
+  updateOneTempAccess(data: TempAccessUpdateInput!, where: TempAccessWhereUniqueInput!): TempAccess
+  upsertOneTempAccess(where: TempAccessWhereUniqueInput!, create: TempAccessCreateInput!, update: TempAccessUpdateInput!): TempAccess!
+  createOneUserTypes(data: UserTypesCreateInput!): UserTypes!
+  deleteManyUserTypes(where: UserTypesWhereInput): AffectedRowsOutput!
+  deleteOneUserTypes(where: UserTypesWhereUniqueInput!): UserTypes
+  updateManyUserTypes(data: UserTypesUpdateManyMutationInput!, where: UserTypesWhereInput): AffectedRowsOutput!
+  updateOneUserTypes(data: UserTypesUpdateInput!, where: UserTypesWhereUniqueInput!): UserTypes
+  upsertOneUserTypes(where: UserTypesWhereUniqueInput!, create: UserTypesCreateInput!, update: UserTypesUpdateInput!): UserTypes!
+  createOneUsers(data: UsersCreateInput!): Users!
+  deleteManyUsers(where: UsersWhereInput): AffectedRowsOutput!
+  deleteOneUsers(where: UsersWhereUniqueInput!): Users
+  updateManyUsers(data: UsersUpdateManyMutationInput!, where: UsersWhereInput): AffectedRowsOutput!
+  updateOneUsers(data: UsersUpdateInput!, where: UsersWhereUniqueInput!): Users
+  upsertOneUsers(where: UsersWhereUniqueInput!, create: UsersCreateInput!, update: UsersUpdateInput!): Users!
+  createOneVehicules(data: VehiculesCreateInput!): Vehicules!
+  deleteManyVehicules(where: VehiculesWhereInput): AffectedRowsOutput!
+  deleteOneVehicules(where: VehiculesWhereUniqueInput!): Vehicules
+  updateManyVehicules(data: VehiculesUpdateManyMutationInput!, where: VehiculesWhereInput): AffectedRowsOutput!
+  updateOneVehicules(data: VehiculesUpdateInput!, where: VehiculesWhereUniqueInput!): Vehicules
+  upsertOneVehicules(where: VehiculesWhereUniqueInput!, create: VehiculesCreateInput!, update: VehiculesUpdateInput!): Vehicules!
+}
+
+input AuthCreateInput {
+  id: String!
+  password: String!
+}
+
+type AffectedRowsOutput {
+  count: Int!
+}
+
+input AuthUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input AuthUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  password: StringFieldUpdateOperationsInput
+}
+
+input QrAuthCreateInput {
+  user_id: String!
+  identifier: String!
+  Users: UsersCreateNestedManyWithoutQr_authInput
+}
+
+input UsersCreateNestedManyWithoutQr_authInput {
+  create: [UsersCreateWithoutQr_authInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutQr_authInput!]
+  connect: [UsersWhereUniqueInput!]
+}
+
+input UsersCreateWithoutQr_authInput {
+  id: String!
+  name: String!
+  user_type: UserTypesCreateNestedOneWithoutUsersInput!
+  temp_acess: TempAccessCreateNestedOneWithoutUsersInput
+}
+
+input UserTypesCreateNestedOneWithoutUsersInput {
+  create: UserTypesCreateWithoutUsersInput
+  connectOrCreate: UserTypesCreateOrConnectWithoutUsersInput
+  connect: UserTypesWhereUniqueInput
+}
+
+input UserTypesCreateWithoutUsersInput {
+  name: String!
+}
+
+input UserTypesCreateOrConnectWithoutUsersInput {
+  where: UserTypesWhereUniqueInput!
+  create: UserTypesCreateWithoutUsersInput!
+}
+
+input TempAccessCreateNestedOneWithoutUsersInput {
+  create: TempAccessCreateWithoutUsersInput
+  connectOrCreate: TempAccessCreateOrConnectWithoutUsersInput
+  connect: TempAccessWhereUniqueInput
+}
+
+input TempAccessCreateWithoutUsersInput {
+  id: String!
+  start_date: DateTime!
+  end_date: DateTime!
+}
+
+input TempAccessCreateOrConnectWithoutUsersInput {
+  where: TempAccessWhereUniqueInput!
+  create: TempAccessCreateWithoutUsersInput!
+}
+
+input UsersCreateOrConnectWithoutQr_authInput {
+  where: UsersWhereUniqueInput!
+  create: UsersCreateWithoutQr_authInput!
+}
+
+input QrAuthUpdateManyMutationInput {
+  user_id: StringFieldUpdateOperationsInput
+  identifier: StringFieldUpdateOperationsInput
+}
+
+input QrAuthUpdateInput {
+  user_id: StringFieldUpdateOperationsInput
+  identifier: StringFieldUpdateOperationsInput
+  Users: UsersUpdateManyWithoutQr_authNestedInput
+}
+
+input UsersUpdateManyWithoutQr_authNestedInput {
+  create: [UsersCreateWithoutQr_authInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutQr_authInput!]
+  upsert: [UsersUpsertWithWhereUniqueWithoutQr_authInput!]
+  set: [UsersWhereUniqueInput!]
+  disconnect: [UsersWhereUniqueInput!]
+  delete: [UsersWhereUniqueInput!]
+  connect: [UsersWhereUniqueInput!]
+  update: [UsersUpdateWithWhereUniqueWithoutQr_authInput!]
+  updateMany: [UsersUpdateManyWithWhereWithoutQr_authInput!]
+  deleteMany: [UsersScalarWhereInput!]
+}
+
+input UsersUpsertWithWhereUniqueWithoutQr_authInput {
+  where: UsersWhereUniqueInput!
+  update: UsersUpdateWithoutQr_authInput!
+  create: UsersCreateWithoutQr_authInput!
+}
+
+input UsersUpdateWithoutQr_authInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  user_type: UserTypesUpdateOneRequiredWithoutUsersNestedInput
+  temp_acess: TempAccessUpdateOneWithoutUsersNestedInput
+}
+
+input UserTypesUpdateOneRequiredWithoutUsersNestedInput {
+  create: UserTypesCreateWithoutUsersInput
+  connectOrCreate: UserTypesCreateOrConnectWithoutUsersInput
+  upsert: UserTypesUpsertWithoutUsersInput
+  connect: UserTypesWhereUniqueInput
+  update: UserTypesUpdateWithoutUsersInput
+}
+
+input UserTypesUpsertWithoutUsersInput {
+  update: UserTypesUpdateWithoutUsersInput!
+  create: UserTypesCreateWithoutUsersInput!
+}
+
+input UserTypesUpdateWithoutUsersInput {
+  name: StringFieldUpdateOperationsInput
+}
+
+input TempAccessUpdateOneWithoutUsersNestedInput {
+  create: TempAccessCreateWithoutUsersInput
+  connectOrCreate: TempAccessCreateOrConnectWithoutUsersInput
+  upsert: TempAccessUpsertWithoutUsersInput
+  disconnect: Boolean
+  delete: Boolean
+  connect: TempAccessWhereUniqueInput
+  update: TempAccessUpdateWithoutUsersInput
+}
+
+input TempAccessUpsertWithoutUsersInput {
+  update: TempAccessUpdateWithoutUsersInput!
+  create: TempAccessCreateWithoutUsersInput!
+}
+
+input TempAccessUpdateWithoutUsersInput {
+  id: StringFieldUpdateOperationsInput
+  start_date: DateTimeFieldUpdateOperationsInput
+  end_date: DateTimeFieldUpdateOperationsInput
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input UsersUpdateWithWhereUniqueWithoutQr_authInput {
+  where: UsersWhereUniqueInput!
+  data: UsersUpdateWithoutQr_authInput!
+}
+
+input UsersUpdateManyWithWhereWithoutQr_authInput {
+  where: UsersScalarWhereInput!
+  data: UsersUpdateManyMutationInput!
+}
+
+input UsersScalarWhereInput {
+  AND: [UsersScalarWhereInput!]
+  OR: [UsersScalarWhereInput!]
+  NOT: [UsersScalarWhereInput!]
+  id: StringFilter
+  name: StringFilter
+  user_type_id: IntFilter
+  tempAccessId: StringNullableFilter
+  qrAuthUser_id: StringFilter
+}
+
+input UsersUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+}
+
+input TempAccessCreateInput {
+  id: String!
+  start_date: DateTime!
+  end_date: DateTime!
+  Users: UsersCreateNestedManyWithoutTemp_acessInput
+}
+
+input UsersCreateNestedManyWithoutTemp_acessInput {
+  create: [UsersCreateWithoutTemp_acessInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutTemp_acessInput!]
+  connect: [UsersWhereUniqueInput!]
+}
+
+input UsersCreateWithoutTemp_acessInput {
+  id: String!
+  name: String!
+  user_type: UserTypesCreateNestedOneWithoutUsersInput!
+  qr_auth: QrAuthCreateNestedOneWithoutUsersInput!
+}
+
+input QrAuthCreateNestedOneWithoutUsersInput {
+  create: QrAuthCreateWithoutUsersInput
+  connectOrCreate: QrAuthCreateOrConnectWithoutUsersInput
+  connect: QrAuthWhereUniqueInput
+}
+
+input QrAuthCreateWithoutUsersInput {
+  user_id: String!
+  identifier: String!
+}
+
+input QrAuthCreateOrConnectWithoutUsersInput {
+  where: QrAuthWhereUniqueInput!
+  create: QrAuthCreateWithoutUsersInput!
+}
+
+input UsersCreateOrConnectWithoutTemp_acessInput {
+  where: UsersWhereUniqueInput!
+  create: UsersCreateWithoutTemp_acessInput!
+}
+
+input TempAccessUpdateManyMutationInput {
+  id: StringFieldUpdateOperationsInput
+  start_date: DateTimeFieldUpdateOperationsInput
+  end_date: DateTimeFieldUpdateOperationsInput
+}
+
+input TempAccessUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  start_date: DateTimeFieldUpdateOperationsInput
+  end_date: DateTimeFieldUpdateOperationsInput
+  Users: UsersUpdateManyWithoutTemp_acessNestedInput
+}
+
+input UsersUpdateManyWithoutTemp_acessNestedInput {
+  create: [UsersCreateWithoutTemp_acessInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutTemp_acessInput!]
+  upsert: [UsersUpsertWithWhereUniqueWithoutTemp_acessInput!]
+  set: [UsersWhereUniqueInput!]
+  disconnect: [UsersWhereUniqueInput!]
+  delete: [UsersWhereUniqueInput!]
+  connect: [UsersWhereUniqueInput!]
+  update: [UsersUpdateWithWhereUniqueWithoutTemp_acessInput!]
+  updateMany: [UsersUpdateManyWithWhereWithoutTemp_acessInput!]
+  deleteMany: [UsersScalarWhereInput!]
+}

@@ -1,0 +1,140 @@
+
+input UsersUpsertWithWhereUniqueWithoutTemp_acessInput {
+  where: UsersWhereUniqueInput!
+  update: UsersUpdateWithoutTemp_acessInput!
+  create: UsersCreateWithoutTemp_acessInput!
+}
+
+input UsersUpdateWithoutTemp_acessInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  user_type: UserTypesUpdateOneRequiredWithoutUsersNestedInput
+  qr_auth: QrAuthUpdateOneRequiredWithoutUsersNestedInput
+}
+
+input QrAuthUpdateOneRequiredWithoutUsersNestedInput {
+  create: QrAuthCreateWithoutUsersInput
+  connectOrCreate: QrAuthCreateOrConnectWithoutUsersInput
+  upsert: QrAuthUpsertWithoutUsersInput
+  connect: QrAuthWhereUniqueInput
+  update: QrAuthUpdateWithoutUsersInput
+}
+
+input QrAuthUpsertWithoutUsersInput {
+  update: QrAuthUpdateWithoutUsersInput!
+  create: QrAuthCreateWithoutUsersInput!
+}
+
+input QrAuthUpdateWithoutUsersInput {
+  user_id: StringFieldUpdateOperationsInput
+  identifier: StringFieldUpdateOperationsInput
+}
+
+input UsersUpdateWithWhereUniqueWithoutTemp_acessInput {
+  where: UsersWhereUniqueInput!
+  data: UsersUpdateWithoutTemp_acessInput!
+}
+
+input UsersUpdateManyWithWhereWithoutTemp_acessInput {
+  where: UsersScalarWhereInput!
+  data: UsersUpdateManyMutationInput!
+}
+
+input UserTypesCreateInput {
+  name: String!
+  Users: UsersCreateNestedManyWithoutUser_typeInput
+}
+
+input UsersCreateNestedManyWithoutUser_typeInput {
+  create: [UsersCreateWithoutUser_typeInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutUser_typeInput!]
+  connect: [UsersWhereUniqueInput!]
+}
+
+input UsersCreateWithoutUser_typeInput {
+  id: String!
+  name: String!
+  temp_acess: TempAccessCreateNestedOneWithoutUsersInput
+  qr_auth: QrAuthCreateNestedOneWithoutUsersInput!
+}
+
+input UsersCreateOrConnectWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  create: UsersCreateWithoutUser_typeInput!
+}
+
+input UserTypesUpdateManyMutationInput {
+  name: StringFieldUpdateOperationsInput
+}
+
+input UserTypesUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  Users: UsersUpdateManyWithoutUser_typeNestedInput
+}
+
+input UsersUpdateManyWithoutUser_typeNestedInput {
+  create: [UsersCreateWithoutUser_typeInput!]
+  connectOrCreate: [UsersCreateOrConnectWithoutUser_typeInput!]
+  upsert: [UsersUpsertWithWhereUniqueWithoutUser_typeInput!]
+  set: [UsersWhereUniqueInput!]
+  disconnect: [UsersWhereUniqueInput!]
+  delete: [UsersWhereUniqueInput!]
+  connect: [UsersWhereUniqueInput!]
+  update: [UsersUpdateWithWhereUniqueWithoutUser_typeInput!]
+  updateMany: [UsersUpdateManyWithWhereWithoutUser_typeInput!]
+  deleteMany: [UsersScalarWhereInput!]
+}
+
+input UsersUpsertWithWhereUniqueWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  update: UsersUpdateWithoutUser_typeInput!
+  create: UsersCreateWithoutUser_typeInput!
+}
+
+input UsersUpdateWithoutUser_typeInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  temp_acess: TempAccessUpdateOneWithoutUsersNestedInput
+  qr_auth: QrAuthUpdateOneRequiredWithoutUsersNestedInput
+}
+
+input UsersUpdateWithWhereUniqueWithoutUser_typeInput {
+  where: UsersWhereUniqueInput!
+  data: UsersUpdateWithoutUser_typeInput!
+}
+
+input UsersUpdateManyWithWhereWithoutUser_typeInput {
+  where: UsersScalarWhereInput!
+  data: UsersUpdateManyMutationInput!
+}
+
+input UsersCreateInput {
+  id: String!
+  name: String!
+  user_type: UserTypesCreateNestedOneWithoutUsersInput!
+  temp_acess: TempAccessCreateNestedOneWithoutUsersInput
+  qr_auth: QrAuthCreateNestedOneWithoutUsersInput!
+}
+
+input UsersUpdateInput {
+  id: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  user_type: UserTypesUpdateOneRequiredWithoutUsersNestedInput
+  temp_acess: TempAccessUpdateOneWithoutUsersNestedInput
+  qr_auth: QrAuthUpdateOneRequiredWithoutUsersNestedInput
+}
+
+input VehiculesCreateInput {
+  user_id: String!
+  matricule: String!
+}
+
+input VehiculesUpdateManyMutationInput {
+  user_id: StringFieldUpdateOperationsInput
+  matricule: StringFieldUpdateOperationsInput
+}
+
+input VehiculesUpdateInput {
+  user_id: StringFieldUpdateOperationsInput
+  matricule: StringFieldUpdateOperationsInput
+}

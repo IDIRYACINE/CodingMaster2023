@@ -15,27 +15,46 @@ generator typegraphql {
 }
 
 model Users {
-    id           Int       @id @default(autoincrement())
-    name         String
+    id   String @id
+    name String
+
     user_type_id Int
     user_type    UserTypes @relation(fields: [user_type_id], references: [id])
+
+    temp_acess   TempAccess? @relation(fields: [tempAccessId], references: [id])
+    tempAccessId String?
+
+    qr_auth       QrAuth @relation(fields: [qrAuthUser_id], references: [user_id])
+    qrAuthUser_id String
+
+
 }
 
-
-model Auth{
-    id         Int       @id
-    password   String
+model Auth {
+    id       String @id
+    password String
 }
-
 
 model UserTypes {
-    id         Int       @id @default(autoincrement())
-    name       String
+    id    Int     @id @default(autoincrement())
+    name  String
+    Users Users[]
+}
+
+model TempAccess {
+    id         String   @id
+    start_date DateTime
+    end_date   DateTime
     Users      Users[]
 }
 
-model TempAccess{
-    id Int  @id 
-    start_date DateTime
-    end_date DateTime
+model QrAuth {
+    user_id    String  @id
+    identifier String
+    Users      Users[]
+}
+
+model Vehicules{
+    user_id String @id 
+    matricule String 
 }

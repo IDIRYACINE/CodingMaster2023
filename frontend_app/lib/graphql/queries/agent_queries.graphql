@@ -1,0 +1,16 @@
+
+query FindUniqueVehicules($where: VehiculesWhereUniqueInput!) {
+  findUniqueVehicules(where: $where) {
+    matricule
+    user_id
+  }
+}
+
+
+mutation CreateOneVehicules($data: VehiculesCreateInput!) {
+  createOneVehicules(data: $data) {
+    matricule
+    user_id
+  }
+}
+

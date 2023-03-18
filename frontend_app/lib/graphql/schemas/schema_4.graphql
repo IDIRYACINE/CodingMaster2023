@@ -1,0 +1,210 @@
+
+input NestedFloatFilter {
+  equals: Float
+  in: [Float!]
+  notIn: [Float!]
+  lt: Float
+  lte: Float
+  gt: Float
+  gte: Float
+  not: NestedFloatFilter
+}
+
+type AggregateUsers {
+  _count: UsersCountAggregate
+  _avg: UsersAvgAggregate
+  _sum: UsersSumAggregate
+  _min: UsersMinAggregate
+  _max: UsersMaxAggregate
+}
+
+type UsersCountAggregate {
+  id: Int!
+  name: Int!
+  user_type_id: Int!
+  tempAccessId: Int!
+  qrAuthUser_id: Int!
+  _all: Int!
+}
+
+type UsersAvgAggregate {
+  user_type_id: Float
+}
+
+type UsersSumAggregate {
+  user_type_id: Int
+}
+
+type UsersMinAggregate {
+  id: String
+  name: String
+  user_type_id: Int
+  tempAccessId: String
+  qrAuthUser_id: String
+}
+
+type UsersMaxAggregate {
+  id: String
+  name: String
+  user_type_id: Int
+  tempAccessId: String
+  qrAuthUser_id: String
+}
+
+type UsersGroupBy {
+  id: String!
+  name: String!
+  user_type_id: Int!
+  tempAccessId: String
+  qrAuthUser_id: String!
+  _count: UsersCountAggregate
+  _avg: UsersAvgAggregate
+  _sum: UsersSumAggregate
+  _min: UsersMinAggregate
+  _max: UsersMaxAggregate
+}
+
+input UsersOrderByWithAggregationInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  tempAccessId: SortOrder
+  qrAuthUser_id: SortOrder
+  _count: UsersCountOrderByAggregateInput
+  _avg: UsersAvgOrderByAggregateInput
+  _max: UsersMaxOrderByAggregateInput
+  _min: UsersMinOrderByAggregateInput
+  _sum: UsersSumOrderByAggregateInput
+}
+
+input UsersCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  tempAccessId: SortOrder
+  qrAuthUser_id: SortOrder
+}
+
+input UsersAvgOrderByAggregateInput {
+  user_type_id: SortOrder
+}
+
+input UsersMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  tempAccessId: SortOrder
+  qrAuthUser_id: SortOrder
+}
+
+input UsersMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+  user_type_id: SortOrder
+  tempAccessId: SortOrder
+  qrAuthUser_id: SortOrder
+}
+
+input UsersSumOrderByAggregateInput {
+  user_type_id: SortOrder
+}
+
+input UsersScalarWhereWithAggregatesInput {
+  AND: [UsersScalarWhereWithAggregatesInput!]
+  OR: [UsersScalarWhereWithAggregatesInput!]
+  NOT: [UsersScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  name: StringWithAggregatesFilter
+  user_type_id: IntWithAggregatesFilter
+  tempAccessId: StringNullableWithAggregatesFilter
+  qrAuthUser_id: StringWithAggregatesFilter
+}
+
+input StringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input NestedStringNullableWithAggregatesFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringNullableWithAggregatesFilter
+  _count: NestedIntNullableFilter
+  _min: NestedStringNullableFilter
+  _max: NestedStringNullableFilter
+}
+
+input NestedIntNullableFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntNullableFilter
+}
+
+type AggregateVehicules {
+  _count: VehiculesCountAggregate
+  _min: VehiculesMinAggregate
+  _max: VehiculesMaxAggregate
+}
+
+type VehiculesCountAggregate {
+  user_id: Int!
+  matricule: Int!
+  _all: Int!
+}
+
+type VehiculesMinAggregate {
+  user_id: String
+  matricule: String
+}
+
+type VehiculesMaxAggregate {
+  user_id: String
+  matricule: String
+}
+
+input VehiculesWhereInput {
+  AND: [VehiculesWhereInput!]
+  OR: [VehiculesWhereInput!]
+  NOT: [VehiculesWhereInput!]
+  user_id: StringFilter
+  matricule: StringFilter
+}
+
+input VehiculesOrderByWithRelationInput {
+  user_id: SortOrder
+  matricule: SortOrder
+}
+
+input VehiculesWhereUniqueInput {
+  user_id: String
+}
+
+type Vehicules {
+  user_id: String!
+  matricule: String!
+}

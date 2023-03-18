@@ -9,5 +9,5 @@ targets:
           trace : true
           clients:
             - graphql
-          outputDirectory : ../../infrastructure/GraphQlService/Generated
+          outputDirectory : ../../infrastracture/graphQlService/generated
           

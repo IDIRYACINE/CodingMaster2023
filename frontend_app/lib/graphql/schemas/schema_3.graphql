@@ -1,0 +1,226 @@
+
+type TempAccessCountAggregate {
+  id: Int!
+  start_date: Int!
+  end_date: Int!
+  _all: Int!
+}
+
+type TempAccessMinAggregate {
+  id: String
+  start_date: DateTime
+  end_date: DateTime
+}
+
+type TempAccessMaxAggregate {
+  id: String
+  start_date: DateTime
+  end_date: DateTime
+}
+
+input TempAccessWhereUniqueInput {
+  id: String
+}
+
+enum TempAccessScalarFieldEnum {
+  id
+  start_date
+  end_date
+}
+
+type TempAccessGroupBy {
+  id: String!
+  start_date: DateTime!
+  end_date: DateTime!
+  _count: TempAccessCountAggregate
+  _min: TempAccessMinAggregate
+  _max: TempAccessMaxAggregate
+}
+
+input TempAccessOrderByWithAggregationInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+  _count: TempAccessCountOrderByAggregateInput
+  _max: TempAccessMaxOrderByAggregateInput
+  _min: TempAccessMinOrderByAggregateInput
+}
+
+input TempAccessCountOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessMaxOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessMinOrderByAggregateInput {
+  id: SortOrder
+  start_date: SortOrder
+  end_date: SortOrder
+}
+
+input TempAccessScalarWhereWithAggregatesInput {
+  AND: [TempAccessScalarWhereWithAggregatesInput!]
+  OR: [TempAccessScalarWhereWithAggregatesInput!]
+  NOT: [TempAccessScalarWhereWithAggregatesInput!]
+  id: StringWithAggregatesFilter
+  start_date: DateTimeWithAggregatesFilter
+  end_date: DateTimeWithAggregatesFilter
+}
+
+input DateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+input NestedDateTimeWithAggregatesFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeWithAggregatesFilter
+  _count: NestedIntFilter
+  _min: NestedDateTimeFilter
+  _max: NestedDateTimeFilter
+}
+
+type AggregateUserTypes {
+  _count: UserTypesCountAggregate
+  _avg: UserTypesAvgAggregate
+  _sum: UserTypesSumAggregate
+  _min: UserTypesMinAggregate
+  _max: UserTypesMaxAggregate
+}
+
+type UserTypesCountAggregate {
+  id: Int!
+  name: Int!
+  _all: Int!
+}
+
+type UserTypesAvgAggregate {
+  id: Float
+}
+
+type UserTypesSumAggregate {
+  id: Int
+}
+
+type UserTypesMinAggregate {
+  id: Int
+  name: String
+}
+
+type UserTypesMaxAggregate {
+  id: Int
+  name: String
+}
+
+input UserTypesWhereUniqueInput {
+  id: Int
+}
+
+enum UserTypesScalarFieldEnum {
+  id
+  name
+}
+
+type UserTypesGroupBy {
+  id: Int!
+  name: String!
+  _count: UserTypesCountAggregate
+  _avg: UserTypesAvgAggregate
+  _sum: UserTypesSumAggregate
+  _min: UserTypesMinAggregate
+  _max: UserTypesMaxAggregate
+}
+
+input UserTypesOrderByWithAggregationInput {
+  id: SortOrder
+  name: SortOrder
+  _count: UserTypesCountOrderByAggregateInput
+  _avg: UserTypesAvgOrderByAggregateInput
+  _max: UserTypesMaxOrderByAggregateInput
+  _min: UserTypesMinOrderByAggregateInput
+  _sum: UserTypesSumOrderByAggregateInput
+}
+
+input UserTypesCountOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesAvgOrderByAggregateInput {
+  id: SortOrder
+}
+
+input UserTypesMaxOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesMinOrderByAggregateInput {
+  id: SortOrder
+  name: SortOrder
+}
+
+input UserTypesSumOrderByAggregateInput {
+  id: SortOrder
+}
+
+input UserTypesScalarWhereWithAggregatesInput {
+  AND: [UserTypesScalarWhereWithAggregatesInput!]
+  OR: [UserTypesScalarWhereWithAggregatesInput!]
+  NOT: [UserTypesScalarWhereWithAggregatesInput!]
+  id: IntWithAggregatesFilter
+  name: StringWithAggregatesFilter
+}
+
+input IntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}
+
+input NestedIntWithAggregatesFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntWithAggregatesFilter
+  _count: NestedIntFilter
+  _avg: NestedFloatFilter
+  _sum: NestedIntFilter
+  _min: NestedIntFilter
+  _max: NestedIntFilter
+}

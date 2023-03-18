@@ -1,0 +1,36 @@
+query FindUniqueUsers($where: UsersWhereUniqueInput!) {
+  findUniqueUsers(where: $where) {
+    id
+    name
+    temp_acess {
+      end_date
+      start_date
+    }
+    user_type {
+      name
+    }
+  }
+}
+
+query FindManyUsers {
+  findManyUsers {
+    id
+    name
+    temp_acess {
+      start_date
+      end_date
+      id
+    }
+    user_type {
+      id
+      name
+    }
+  }
+}
+
+query FindFirstQrAuth($where: QrAuthWhereInput) {
+  findFirstQrAuth(where: $where) {
+    user_id
+    identifier
+  }
+}
