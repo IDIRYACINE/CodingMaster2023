@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/features/user/state/bloc.dart';
 import 'package:frontend_app/features/user/state/state.dart';
 
-import 'bottom_bar.dart';
+import '../../../ui/bottom_bar.dart';
 
 class UserScreen extends StatelessWidget {
   const UserScreen({super.key});
