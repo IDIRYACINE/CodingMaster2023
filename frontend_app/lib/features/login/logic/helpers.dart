@@ -3,13 +3,25 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:frontend_app/application/navigation/feature.dart';
 import 'package:frontend_app/dataModels/user.dart';
 import 'package:frontend_app/features/login/ui/qr_scan_view.dart';
+import 'package:frontend_app/infrastracture/authService/resolvers/login_credentials.dart';
+import 'package:frontend_app/infrastracture/authService/service.dart';
 import 'package:frontend_app/infrastracture/services.dart';
+import 'package:frontend_app/infrastracture/services_store.dart';
 import 'package:frontend_app/ui/dialogs.dart';
 
 import 'controller.dart';
 
 class LoginController {
-  LoginController();
+  late ServicesStore store;
+
+  LoginController(){
+    store  = ServicesStore.instance();
+
+    store.serviceStream(AuthService.getServiceId()).listen((event) { 
+        
+    });
+
+  }
 
   final formKey = GlobalKey<FormState>();
 
@@ -17,10 +29,16 @@ class LoginController {
   String password = '';
 
   void loginWithCredentials() {
-    ServicesGateway.instance()
-        .authService
-        .loginWithCredentials(id, password)
-        .then(_onLoginResponse);
+
+    final event = LoginWithCredentialsEventResolver.buildEvent(id, password);
+    store.next(event);
+
+
+
+    // ServicesGateway.instance()
+    //     .authService
+    //     .loginWithCredentials(id, password)
+    //     .then(_onLoginResponse);
   }
 
   void _onLoginResponse(User? user) {
