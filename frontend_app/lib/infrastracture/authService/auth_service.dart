@@ -34,6 +34,7 @@ class AuthService {
 
     return _graphQlClient
         .query(options)
-        .then((response) => userFromJson(response.data!['findFirstQrAuth']));
+        .then((response)  {
+          return userFromJson(response.data!['findFirstQrAuth']);});
   }
 }

@@ -6,6 +6,7 @@ import 'package:frontend_app/features/splash/ui/splash_screen.dart';
 import 'application/navigation/app_navigation.dart';
 import 'features/admin/feature.dart';
 import 'features/agent/feature.dart';
+import 'features/settings/feature.dart';
 import 'features/user/feature.dart';
 
 void main() {
@@ -25,18 +26,19 @@ void main() {
 class Uniway extends StatelessWidget {
   const Uniway({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      navigatorKey: AppNavigator.key,
-      title: 'Uniway',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      onGenerateRoute: AppRouter.generateRoutes,
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
+    return AnimatedBuilder(
+        animation: SettingsController.instance(),
+        builder: (context, child) {
+          return MaterialApp(
+            navigatorKey: AppNavigator.key,
+            title: 'Uniway',
+            theme: SettingsController.instance().theme,
+            onGenerateRoute: AppRouter.generateRoutes,
+            home: const MyHomePage(title: 'Flutter Demo Home Page'),
+          );
+        });
   }
 }
 

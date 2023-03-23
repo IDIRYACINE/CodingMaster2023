@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 
 import 'constants.dart';
 
-final lightTheme = ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: nightBlue));
+final adminTheme = ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: nightBlue));
 
-final darkTheme = ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey));
+final agentTheme = ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey));
+
+final userTheme = ThemeData.from(colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey));
+
+
