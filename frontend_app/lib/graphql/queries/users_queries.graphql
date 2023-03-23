@@ -32,5 +32,11 @@ query FindFirstQrAuth($where: QrAuthWhereInput) {
   findFirstQrAuth(where: $where) {
     user_id
     identifier
+    Users {
+      user_type {
+        name
+        id
+      }
+    }
   }
 }

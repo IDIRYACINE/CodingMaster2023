@@ -1,0 +1,5 @@
+{
+    "files.exclude": {
+        "lib/infrastracture/graphQlService/generated/*.dart": true,
+    }
+}

@@ -38,9 +38,30 @@ class User {
 
 enum UserTypes { admin, student, employee, temporaryUser, agent }
 
-enum UserFields { name, id, startValidity, endValidity, userType }
+enum UserFields { name, id, startValidity, endValidity, userType , qrUserId,qrUserName}
 
-User? userFromJson(Map<String, dynamic>? json) {
+extension _UserFields on UserFields{
+  String get name {
+    switch (this) {
+      case UserFields.name:
+        return "name";
+      case UserFields.id:
+        return "id";
+      case UserFields.startValidity:
+        return "startValidity";
+      case UserFields.endValidity:
+        return "endValidity";
+      case UserFields.userType:
+        return "user_type";
+      case UserFields.qrUserId:
+        return "user_id";
+      case UserFields.qrUserName:
+        return "identifier";
+    }
+  }
+}
+
+User? userFromJson(Map<String, dynamic>? json ,[bool isQr = false]) {
   if (json == null) {
     return null;
   }
@@ -56,12 +77,17 @@ User? userFromJson(Map<String, dynamic>? json) {
       ? DateTime.now()
       : DateTime.tryParse(rawEnd) ?? DateTime.now();
 
+  final userKey = isQr ? UserFields.qrUserName : UserFields.name;
+  final userIdKey = isQr ? UserFields.qrUserId : UserFields.id;
+
+  String userType = json["Users"][0][UserFields.userType.name][UserFields.name.name];
+
   return User(
-    name: json[UserFields.name.name] as String,
-    id: json[UserFields.id.name] as String,
+    name: json[userKey.name] as String,
+    id: json[userIdKey.name] as String,
     startValidity: startValidity,
     endValidity: endValidity,
-    userType: _userTypeFromString(json["user_type"][UserFields.name.name]),
+    userType: _userTypeFromString(userType),
   );
 }
 
