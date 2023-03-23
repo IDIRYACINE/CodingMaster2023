@@ -4,6 +4,7 @@ import 'package:frontend_app/features/login/feature.dart';
 import 'package:frontend_app/features/login/logic/controller.dart';
 import 'package:frontend_app/features/login/logic/helpers.dart';
 import 'package:frontend_app/infrastracture/services.dart';
+import 'package:frontend_app/l10n/app_localizations.dart';
 import 'package:frontend_app/ui/constants.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -30,14 +31,14 @@ class LoginScreen extends StatelessWidget {
                     image: AssetImage(splashLogo),
                   ),
                   TextFormField(
-                      decoration: const InputDecoration(
-                        hintText: 'Id',
+                      decoration: InputDecoration(
+                        hintText: AppLocalizations.of(context)!.identifaction,
                       ),
                       onChanged: (value) => loginController.id = value,
                       validator: validateId),
                   TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Password',
+                    decoration: InputDecoration(
+                      hintText: AppLocalizations.of(context)!.password,
                     ),
                     onChanged: (value) => loginController.password = value,
                     validator: validatePassword,
@@ -48,7 +49,9 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       loginController.loginWithCredentials();
                     },
-                    child: const Text('Login with credentials'),
+                    child: Text(
+                      AppLocalizations.of(context)!.loginWithCredentials,
+                    ),
                   ),
                   const Divider(
                     color: Colors.black,
@@ -61,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       loginController.loginWithQr();
                     },
-                    child: const Text('Login with qr'),
+                    child: Text(AppLocalizations.of(context)!.loginWithQr),
                   ),
                 ],
               ),

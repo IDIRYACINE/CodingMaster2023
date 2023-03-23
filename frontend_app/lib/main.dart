@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:frontend_app/features/login/state/bloc.dart';
 import 'package:frontend_app/features/splash/ui/splash_screen.dart';
 
@@ -8,6 +9,8 @@ import 'features/admin/feature.dart';
 import 'features/agent/feature.dart';
 import 'features/settings/feature.dart';
 import 'features/user/feature.dart';
+import 'l10n/app_localizations.dart';
+import 'ui/constants.dart';
 
 void main() {
   runApp(
@@ -33,19 +36,27 @@ class Uniway extends StatelessWidget {
         builder: (context, child) {
           return MaterialApp(
             navigatorKey: AppNavigator.key,
-            title: 'Uniway',
+            title: appName,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: SettingsController.instance().supportedLocales,
+            locale: SettingsController.instance().locale,
             theme: SettingsController.instance().theme,
             onGenerateRoute: AppRouter.generateRoutes,
-            home: const MyHomePage(title: 'Flutter Demo Home Page'),
+            home: const MyHomePage(),
           );
         });
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-
-  final String title;
+  const MyHomePage({
+    super.key,
+  });
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();

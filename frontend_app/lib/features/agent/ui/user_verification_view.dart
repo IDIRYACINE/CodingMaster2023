@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/features/agent/feature.dart';
+import 'package:frontend_app/l10n/app_localizations.dart';
 
 class AgentUserVerificationView extends StatelessWidget {
   const AgentUserVerificationView({super.key});
@@ -51,11 +52,11 @@ class _UserVerifiedWidget extends StatelessWidget {
           ),
           MaterialButton(
             onPressed: onPressed,
-            child: const Text("continue"),
+            child:  Text(AppLocalizations.of(context)!.continueProcess),
           ),
           MaterialButton(
             onPressed: onPressed,
-            child: const Text("register vehicule"),
+            child:  Text(AppLocalizations.of(context)!.registerVehicule),
           )
         ],
       ),

@@ -1,0 +1,27 @@
+
+{
+    "userName": "nom d'utilisateur",
+    "password": "mot de passe",
+    "identifaction": "identification",
+    "admin": "administrateur",
+    "user": "utilisateur",
+    "agent": "agent",
+    "login": "connexion",
+    "logout": "déconnexion",
+    "addUser": "ajouter un utilisateur",
+    "importUsersFromExcel": "importer des utilisateurs depuis Excel",
+    "changeLanguage": "changer la langue",
+    "arabic": "arabe",
+    "english": "anglais",
+    "french": "français",
+    "userType" : "type d'utilisateur",
+    "validityStartDate" : "debut de validité",
+    "validityEndDate" : "fin de validité",
+    "loginWithQr" : "connecter avec qr",
+    "loginWithCredentials" : "connecter avec identifiants",
+    "continueProcess" : "continuer le processus",
+    "registerVehicule" : "enregistrer un véhicule",
+    "acessGranted" : "access granted",
+    "acessDenied" : "access denied",
+    "unkown" : "inconnu"
+    }

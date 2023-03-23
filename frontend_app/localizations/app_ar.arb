@@ -1,0 +1,27 @@
+{
+    "userName": "اسم المستخدم",
+    "password": "كلمة المرور",
+    "identifaction": "التحقق من الهوية",
+    "admin": "مسؤول النظام",
+    "user": "مستخدم",
+    "agent": "وكيل",
+    "login": "تسجيل الدخول",
+    "logout": "تسجيل الخروج",
+    "addUser": "إضافة مستخدم",
+    "importUsersFromExcel": "استيراد المستخدمين من اكسل",
+    "changeLanguage": "تغيير اللغة",
+    "arabic": "العربية",
+    "english": "الإنجليزية",
+    "french": "الفرنسية",
+    "userType" : "نوع المستخدم",
+    "validityStartDate" : "تاريخ بداية الصلاحية",
+    "validityEndDate" : "تاريخ نهاية الصلاحية",
+    "loginWithQr" : "تسجيل الدخول برمز الاستجابة السريعة",
+    "loginWithCredentials" : "تسجيل الدخول",
+    "continueProcess" : "متابعة العملية",
+    "registerVehicule" : "تسجيل السيارة",
+    "acessGranted" : "تم الدخول بنجاح",
+    "acessDenied" : "لم يتم الدخول",
+    "unkown" : "غير معروف"
+
+}

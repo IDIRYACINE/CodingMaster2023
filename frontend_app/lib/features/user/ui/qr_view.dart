@@ -14,7 +14,7 @@ class UserQrView extends StatelessWidget {
     return BlocBuilder<UserBloc, UserState>(builder: (context, state) {
       return Scaffold(
         body: Center(
-          child: UserQrWidget(user: state.user),
+          child: Card(child: UserQrWidget(user: state.user)),
         ),
       );
     });

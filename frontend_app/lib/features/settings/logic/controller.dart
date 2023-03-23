@@ -34,4 +34,19 @@ class SettingsController with ChangeNotifier {
     notifyListeners();
   }
 
+
+  final List<Locale> supportedLocales = const [
+    Locale("en"),
+    Locale("ar"),
+    Locale("fr"),
+  ];
+  
+  late Locale _locale = supportedLocales[0];
+
+  Locale get locale => _locale;
+
+  void setLocale(Locale locale){
+    _locale = locale;
+    notifyListeners();
+  }
 }

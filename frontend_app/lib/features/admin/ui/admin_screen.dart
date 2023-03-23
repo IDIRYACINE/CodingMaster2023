@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/dataModels/user.dart';
 import 'package:frontend_app/features/admin/feature.dart';
 import 'package:frontend_app/features/admin/logic/helpers.dart';
+import 'package:frontend_app/l10n/app_localizations.dart';
 import 'package:frontend_app/ui/bottom_bar.dart';
 
 class AdminScreen extends StatelessWidget {
@@ -16,7 +17,7 @@ class AdminScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
-            title: const Text('Admin'),
+            title:  Text(AppLocalizations.of(context)!.admin),
           ),
           body: Center(
             child: state.selectedScreen,

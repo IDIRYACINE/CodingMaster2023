@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:frontend_app/dataModels/user_stats.dart';
 import 'package:frontend_app/features/admin/feature.dart';
+import 'package:frontend_app/l10n/app_localizations.dart';
 
 class UserStatsView extends StatelessWidget {
   const UserStatsView({super.key});
@@ -31,10 +32,12 @@ class _UserStatWidget extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: Text(stat.name ?? "name"),
+          child: Text(stat.name ?? AppLocalizations.of(context)!.unkown),
         ),
         Expanded(
-          child: Text(stat.authorised ? "granted" : "revoked"),
+          child: Text(stat.authorised
+              ? AppLocalizations.of(context)!.acessGranted
+              : AppLocalizations.of(context)!.acessDenied),
         )
       ],
     );

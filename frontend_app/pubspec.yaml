@@ -44,6 +44,9 @@ dependencies:
 
   services_bus:
     path: ../../Dart.Playground/services_bus
+  intl: any
+  flutter_localizations:
+    sdk: flutter
 
 
 dev_dependencies:

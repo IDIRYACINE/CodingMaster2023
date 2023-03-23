@@ -1,0 +1,27 @@
+{
+    "userName" : "userName",
+    "password" : "password",
+    "identifaction" : "identifaction",
+    "admin" : "admin",
+    "user" : "user",
+    "agent" : "agent",
+    "login" : "login",
+    "logout" : "logout",
+    "addUser" : "addUser",
+    "importUsersFromExcel" : "importUsersFromExcel",
+    "changeLanguage" : "change language",
+    "arabic" : "arabic",
+    "english" : "english",
+    "french" : "french",
+    "userType" : "userType",
+    "validityStartDate" : "validity start date",
+    "validityEndDate" : "validity end date",
+    "loginWithQr" : "login with qr",
+    "loginWithCredentials" : "login with credentials",
+    "continueProcess" : "continue process",
+    "registerVehicule" : "register vehicule",
+    "acessGranted" : "acess granted",
+    "acessDenied" : "acess denied",
+    "unkown" : "unkown"
+
+}
